@@ -21,3 +21,8 @@ WHERE c.name = 'CSC275' and c.crn = e.course_crn and e.student_id = s.id and s.i
 SELECT COUNT(DISTINCT e.student_id)
 FROM students AS s, enrolls AS e, courses AS c, majors AS m, departments AS d
 WHERE d.name = 'CS' and d.id = m.dept_id and m.student_id = s.id and s.id = e.student_id;
+
+SELECT s.id, s.name, COUNT(m.dept_id)
+FROM students AS s, majors AS m
+WHERE m.student_id = s.id
+GROUP BY m.student_id
