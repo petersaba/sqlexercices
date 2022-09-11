@@ -13,3 +13,7 @@ WHERE d.name = "BIF" and d.id = m.dept_id and m.student_id = e.student_id and e.
 SELECT *
 FROM students
 WHERE id NOT IN (SELECT DISTINCT student_id FROM enrolls);
+
+SELECT COUNT(s.id)
+FROM students AS s, enrolls AS e, courses AS c
+WHERE c.name = 'CSC275' and c.crn = e.course_crn and e.student_id = s.id;
