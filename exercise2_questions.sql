@@ -25,4 +25,10 @@ WHERE d.name = 'CS' and d.id = m.dept_id and m.student_id = s.id and s.id = e.st
 SELECT s.id, s.name, COUNT(m.dept_id)
 FROM students AS s, majors AS m
 WHERE m.student_id = s.id
-GROUP BY m.student_id
+GROUP BY m.student_id;
+
+SELECT d.name, COUNT(m.student_id)
+FROM departments AS d, majors AS m
+WHERE d.id = m.dept_id
+GROUP BY m.dept_id
+HAVING COUNT(m.student_id) > 1;
